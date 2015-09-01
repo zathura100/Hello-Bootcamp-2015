@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EKM Production</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scrip.js"></script>
+	<style>
+	body {
+		background:grey;
+		margin:0;
+	}
+	header {
+		background: yellow;
+	}
+	#main {
+		background: #fff;
+	}
+	footer {
+		background: yellow;
+	}
+	header, #main, footer {
+	    clear: both;
+	    display: table;
+	    width: 100%;
+	    max-width: 1000px;
+	    margin: auto;
+	}
+	.wrap {
+		padding: 15px;
+	}
+	#navigation {
+		margin:0 auto 20px auto;
+		padding:10px;
+	}
+	#navigation li {
+		list-style: none;
+		margin:0 10px 0 0;
+		display: inline;
+	}
+	#navigation li a {
+		border:solid 1px;
+		padding:15px;
+		line-height: 50px;
+		color: black;
+    	text-decoration: none;
+	}
+	#navigation li a.active {
+		background: yellow
+	}
+
+	section {
+		clear: both;
+	    display: table;
+	    width: 100%;
+	}
+	img {
+		max-width:100%;
+	}
+	#profile_two, #profile_three {
+		display:none
+	}
+	.col_67 {
+		width:67%;
+		float:left;
+	}
+	.col_50 {
+		width:50%;
+		float:left;
+	}
+	.col_33{
+		width:33%;
+		float:left;
+	}
+	@media only screen and (max-width: 868px) {
+	    header .col_33, .col_67 {
+	    	text-align:center;
+	    	margin:auto;
+	    	width:100%; 
+			float:none;
+		}
+		header {
+	    	text-align:center;
+		}
+	}
+	@media only screen and (max-width: 700px) {
+	    #main .col_33 {
+	    	margin:auto;
+	    	width:100%;
+	    	max-width:310px; 
+			float:none;
+		}
+	}
+	@media only screen and (max-width: 450px) {
+	    #main .col_50{
+	    	margin:auto;
+	    	width:100%;
+			float:none;
+		}
+		#navigation li  {
+		    width:100%;
+		    display:block;
+		}
+		#navigation li a {
+		    display: block;
+		    text-align: center;
+		}
+	}
+	</style>
+	<script>
+
+	
+	function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	$(document).ready( function(){
+
+
+
+		$( "a" ).click(function(e) {
+			e.preventDefault();
+			$this = $(this);
+			if ( $this.hasClass('active') ) return;
+			var $link_current = $('.active');
+			var $div_current = $link_current.attr('href');
+			var $div_target = $this.attr('href');
+			var effect = ['fold', 'shake', 'pulsate', 'slide']
+			effect = effect[getRandomInt(0, 3)];
+
+			$( "#" + $div_current).css('opacity',1).toggle( effect, 500, function() {
+
+	  				$( "#" + $div_target).css('opacity',1).toggle( effect, 500, function() {
+		  				$link_current.removeClass('active')
+		  				$this.addClass('active');
+		  			} );
+
+  			} );
+	  		
+		});
+
+	});
+	
+	</script>
+</head>
+<body>
+<header>
+	<div class="wrap">
+		<div id="logo" class="col_33">
+			<img  src="http://placehold.it/300x100" />
+		</div>
+			<div id="page_title" class="col_67">
+			<h1>Our Site Tile<small> - title description</small></h1>
+		</div>
+	</div>
+</header>
+<main id="main">
+	<div class="wrap">
+		<nav>
+			<ul id="navigation">
+				<li> <a class="active" href="profile_one">Profile1</a></li>
+				<li> <a href="profile_two">Profile2</a></li>
+				<li> <a href="profile_three">Profile3</a></li>
+			</ul>
+		</nav>
+		<div id="profile_one">
+			<section class="s_one">
+				<div class="col_50">
+					<img class="big_content_img" src="http://placehold.it/475x600" />
+				</div>
+				<div class="col_50">
+					<div class="big_content_box">
+						<p>sample Text</p>
+					</div>
+				</div>
+			</section>
+			<section class="s_two">
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+			</section>
+		</div><!-- /#profile_one -->
+		<div id="profile_two">
+			<section class="s_one">
+				<div class="col_50">
+					<img class="big_content_img" src="http://placehold.it/475x600" />
+				</div>
+				<div class="col_50">
+					<div class="big_content_box">
+						<p>sample Text2</p>
+					</div>
+				</div>
+			</section>
+			<section class="s_two">
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+			</section>
+		</div><!-- /#profile_two -->
+		<div id="profile_three">
+			<section class="s_one">
+				<div class="col_50">
+					<img class="big_content_img" src="http://placehold.it/475x600" />
+				</div>
+				<div class="col_50">
+					<div class="big_content_box">
+						<p>sample Text3</p>
+					</div>
+				</div>
+			</section>
+			<section class="s_two">
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col_33">
+					<figure>
+						<img src="http://placehold.it/300x400" />
+						<figcaption>
+							caption...
+						</figcaption>
+					</figure>
+				</div>
+			</section>
+		</div><!-- /#profile_three -->
+	</div><!-- /.wrap -->
+</main>
+<footer>
+	<div class="wrap">
+		<p>&copy; EKM Production</p>
+	</div>
+</footer>
+</body>
+</html>
